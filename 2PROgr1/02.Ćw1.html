@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const product1 = {
+            nazwa: "jabłka",
+            waga: 2.5,
+            cenaWZl: 2.99
+        }
+
+        const product2 = {
+            nazwa: "gruszki",
+            waga: 1.5,
+            cenaWZl: 4.99
+        }
+
+        console.log(`Obiekt numer1 nosi nazwę: ${product1.nazwa}`);
+        console.log(`Obiekt numer2 nosi nazwę: ${product2.nazwa}`);
+        console.log(`Oba obiekty w sumie ważą: ${product1.waga + product2.waga}`);
+        console.log(product1.cenaWZl, typeof product1.cenaWZl);
+        let answ;
+        if (product1.cenaWZl > product2.cenaWZl){
+            answ = "Droższym z nich jest obiekt nr 1"
+        } else if (product1.cenaWZl < product2.cenaWZl){
+            answ = "Droższym z nich jest obiekt nr 1"
+        } else {
+            answ = "Oba obiekty kosztują tyle samo"
+        }
+        console.log(answ);
+    </script>
+</body>
+</html>

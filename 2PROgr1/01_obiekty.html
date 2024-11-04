@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Worker {
+        constructor(name, surname, age, jobTitle, isAvaiable) {
+          this.name = name || "unknown";
+          this.surname = surname;
+          this.age = age || 0;
+          this.jobTitle = jobTitle;
+          this.isAvaiable = isAvaiable || true;
+        }
+        showJobTitle() {
+          console.log(this.jobTitle);
+        }
+      }
+
+      const worker1 = new Worker("Jan", "Kowalski", "szef");
+      const worker2 = new Worker(
+        "Ewa",
+        "Nowak",
+        33,
+        "szefowa wszystkich szefów",
+        false
+      );
+
+      worker1.showJobTitle();
+      console.log(worker1.isAvaiable);
+      console.log(worker2.isAvaiable);
+      worker2.showJobTitle();
+    </script>
+  </body>
+</html>

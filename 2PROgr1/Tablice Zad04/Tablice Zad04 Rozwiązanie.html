@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <script src="data.js"></script>
+    <script src="Tablice Zad04/data.js"></script>
     <script>
       // Zadanie 1 Wypisz imiona i nazwiska użytkowników oraz ich email
       users.forEach((user) => {
@@ -44,6 +44,18 @@
       // Zliczanie kobiet i mężczyzn
       const numberOfWomen = users.filter((user) => user.gender === "female").length;
       const numberOfMen = users.filter((user) => user.gender === "male").length;
+
+      let nrOfWomen=0;
+      let nrOfMale = 0;
+      users.forEach(el=>{
+if(el.gender==="female") {
+  nrOfWomen++;
+}
+if (el.gender==="male") {
+  nrOfMale++;
+}
+})
+console.log('Kobiety: ' + nrOfWomen, 'Mężczyźni: ' + nrOfMale);
 
       // Wypisanie liczby kobiet i mężczyzn
       console.log(`Liczba kobiet: ${numberOfWomen}`);
