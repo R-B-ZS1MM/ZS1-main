@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .container,
+      .results {
+        text-align: center;
+        width: 80%;
+        margin: 30px auto;
+        background-color: antiquewhite;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid rgb(167, 100, 12);
+        box-shadow: 0 0 15px;
+      }
+      .results {
+        visibility: hidden;
+      }
+      select {
+        display: block;
+        margin: 10px auto;
+        padding: 5px;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Operacje na tablicach</h1>
+    </div>
+    <div class="container">
+      <label for="inp-number">Podaj liczbę: </label>
+      <input type="number" placeholder="wpisz dowolną liczbę" id="inp-number" />
+      <button id="btn-add">Dodaj do tabeli</button>
+      <select name="select-operation" id="select-operation">
+        <option value="">Wybierz operację na tabeli</option>
+        <option value="delete-first">Usuń pierwszy element</option>
+        <option value="delete-last">Usuń ostatni element</option>
+      </select>
+    </div>
+    <div class="results"></div>
+    <script>
+      const select = document.querySelector("#select-operation");
+      const btnAdd = document.querySelector("#btn-add");
+      const inpNumber = document.querySelector("#inp-number");
+      const numbers = [];
+
+      function showTable() {
+        let newPar = document.createElement("p");
+        newPar.textContent =
+          "Tabela po ostatniej operacji: " + numbers.join(" | ");
+        document.querySelector(".results").style.visibility = "visible";
+        document.querySelector(".results").appendChild(newPar);
+      }
+      btnAdd.addEventListener("click", () => {
+        if (inpNumber.value == "") {
+          alert("Musisz podać liczbę!");
+          return;
+        }
+        numbers.push(inpNumber.value);
+        inpNumber.value = "";
+        showTable();
+      });
+
+      select.addEventListener("change", () => {
+        switch (select.value) {
+          case "delete-first":
+            numbers.shift();
+            showTable();
+            select.value=''
+            break;
+            case "delete-last":
+              numbers.pop();
+              select.value=''
+            showTable();
+            break;
+        }
+      });
+      
+    </script>
+  </body>
+</html>

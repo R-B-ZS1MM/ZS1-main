@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="data.js"></script>
+    <script>
+      // Zadanie 1 Wypisz imiona i nazwiska użytkowników oraz ich email
+      users.forEach((user) => {
+        console.log(`${user.name} -> ${user.email}`);
+      });
+
+      // Użycie pętli for...of do iteracji po elementach tablicy
+      for (let user of users) {
+        console.log(`${user.name} -> ${user.email}`);
+      }
+
+      // Zadanie 2 Wypisz tablicę z wszystkimi użytkownikami pełnoletnimi
+      const adultUsers = users.filter((user) => user.age >= 18);
+      console.log(adultUsers);
+
+      // Zadanie 3 Wypisz tablicę z wszystkimi kobietami
+      const femaleUsers = users.filter((user) => user.gender === "female");
+      console.log(femaleUsers);
+
+      // Zadanie 4 Wypisz tablicę użytkowników którzy mają tag "dolor"
+      const tagDolorUsers = users.filter((user) => user.tags.includes("dolor"));
+      console.log(tagDolorUsers);
+
+      // Zadanie 5 Wypisz true/false w zależności od tego czy wszyscy użytkownicy są pełnoletni
+      console.log(users.every((user) => user.age >= 18));
+
+      // Zadanie 6 Wypisz true/false w zależności od tego czy chociaż jeden z użytkowników jest pełnoletni
+      console.log(users.some((user) => user.age >= 18));
+
+      // Zadanie 7 Wypisz nową tablicę zawierającą tylko imiona użytkowników które będą pisane dużymi literami
+      const upperCaseNames = users.map((user) => user.name.toUpperCase());
+      console.log(upperCaseNames);
+
+      // Zadanie 8 Wypisz liczbę kobiet i liczbę mężczyzn. Wypisz tekst która grupa jest liczniejsza (np. "kobiety wygrywają")
+      // Zliczanie kobiet i mężczyzn
+      const numberOfWomen = users.filter((user) => user.gender === "female").length;
+      const numberOfMen = users.filter((user) => user.gender === "male").length;
+
+      // Wypisanie liczby kobiet i mężczyzn
+      console.log(`Liczba kobiet: ${numberOfWomen}`);
+      console.log(`Liczba mężczyzn: ${numberOfMen}`);
+
+      // Sprawdzanie, która grupa jest liczniejsza
+      if (numberOfWomen > numberOfMen) {
+        console.log("Kobiety wygrywają");
+      } else if (numberOfMen > numberOfWomen) {
+        console.log("Mężczyźni wygrywają");
+      } else {
+        console.log("Obie grupy są równe");
+      }
+    </script>
+  </body>
+</html>
